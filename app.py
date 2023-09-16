@@ -1,5 +1,4 @@
 import tensorflow as tf
-import pandas as pd
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -33,7 +32,7 @@ def predictCH():
         data = request.get_json()
         input = data["data"]
         print("THE DATA:::", input)
-        model = tf.keras.models.load_model("./modelCH.h5")
+        model = tf.keras.models.load_model("./modelCHH.h5")
 
         result = model.predict([input])
         return jsonify({"res": result.tolist()})
